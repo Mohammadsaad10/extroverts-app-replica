@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/*
+ * ============================================
+ * DESIGN TOKENS — Extroverts App
+ * ============================================
+ * Centralized design tokens so every component
+ * pulls from one source of truth.
+ */
+
+@theme {
+  /* ── Brand colors ── */
+  --color-bg: #000000;
+  --color-surface: #151515;
+  --color-surface-light: #1a1a1a;
+
+  --color-accent-purple: #8B5CF6;
+  --color-accent-pink: #EC4899;
+  --color-accent-coral: #F87171;
+
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F97316;
+
+  /* ── Text ── */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.3);
+
+  /* ── Borders ── */
+  --color-border-default: rgba(255, 255, 255, 0.15);
+  --color-border-error: #EF4444;
+
+  /* ── Font family ── */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+ * ============================================
+ * BASE & RESPONSIVE STYLES
+ * ============================================
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  /* Mobile safe-area support */
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/*
+ * ============================================
+ * SCROLLBAR UTILITIES
+ * ============================================
+ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*
+ * ============================================
+ * SELECTION & INTERACTIONS
+ * ============================================
+ */
+
+::selection {
+  background-color: var(--color-accent-purple);
+  color: white;
+}
+
+/* Touch-friendly interactive scale feedback */
+@media (hover: hover) and (pointer: fine) {
+  .hover-card {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/*
+ * ============================================
+ * SPINNER ANIMATION (illusion spoke fade)
+ * ============================================
+ */
+
+@keyframes spoke-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
