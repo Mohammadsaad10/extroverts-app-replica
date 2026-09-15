@@ -92,7 +92,7 @@ These enhancements were implemented proactively to elevate code quality, accessi
 | Improvement | Detail |
 |------------|--------|
 | **Removed hardcoded PII** | Replaced a hardcoded personal email address with a generic `your@email.com` placeholder |
-| **Demo OTP gated** | The development-only bypass OTP (`000000`) is now gated behind `import.meta.env.DEV` — won't work in production builds |
+| **Demo OTP error state** | Entering `000000` triggers the wrong OTP error toast (`screen6_enter_otp_wrong_otp.png`) for testing/reviewing the error state |
 
 ### ♿ Accessibility (a11y) Improvements
 | Improvement | Detail |
@@ -264,7 +264,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Mohammadsaad10/extroverts-app-replica.git
 cd extroverts-app
 
 # Install dependencies
@@ -278,8 +278,8 @@ The app will be available at **http://localhost:5173**
 
 ### Demo OTP
 
-In development mode, use OTP `000000` to bypass verification.  
-This bypass is **disabled** in production builds.
+- Enter any 6 digits (e.g. `123456`) to proceed to the username screen.
+- Enter `000000` to trigger the demo wrong OTP error toast (*"Verification failed. Please try again."*), matching `screen6_enter_otp_wrong_otp.png`.
 
 ---
 

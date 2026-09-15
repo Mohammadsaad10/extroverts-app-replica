@@ -102,8 +102,8 @@ export default function OtpPage() {
       return
     }
 
-    // TODO: Remove before production — Demo error trigger for testing
-    if (import.meta.env.DEV && enteredOtp === '000000') {
+    // Demo error trigger for testing the wrong OTP toast state
+    if (enteredOtp === '000000') {
       setToastMessage('Verification failed. Please try again.')
       return
     }
